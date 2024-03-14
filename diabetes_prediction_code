@@ -41,3 +41,11 @@ diabetes_data = diabetes_data[(z_scores <= threshold).all(axis=1)]
 
 #descriptive statistics our dataset
 print(diabetes_data.describe())
+
+
+# Split the data into independent (features) and dependent (target) variables
+X = diabetes_data.drop('Diabetes_012', axis=1)
+y = diabetes_data['Diabetes_012']
+
+# Split the dataset at 80% for training and 20% for testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
