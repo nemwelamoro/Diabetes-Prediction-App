@@ -22,3 +22,20 @@ diabetes_data= diabetes_data.drop('Column1' , axis=1)
 #data types stored
 diabetes_data.dtypes
 #all are int64
+
+#the z-score method is used to identify data points that are more than a certain number of standard deviations away from the mean
+# calculate the z-score for each column
+z_scores = np.abs((diabetes_data - diabetes_data.mean()) / diabetes_data.std())
+
+# set a threshold z-score
+threshold = 3
+
+# identify potential outliers
+outliers = diabetes_data[(z_scores > threshold).any(axis=1)]
+
+# show the outliers
+print(outliers)
+
+# remove the rows with outliers
+diabetes_data = diabetes_data[(z_scores <= threshold).all(axis=1)]
+
