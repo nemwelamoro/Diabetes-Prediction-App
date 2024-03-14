@@ -11,3 +11,14 @@ import matplotlib.pyplot as plt
 
 # Import and read dataset in csv file
 diabetes_data = pd.read_csv("C:/Users/FBI/Downloads/Diabetes_Prediction_2018_2022.csv")
+
+#pre processing
+# Check for missing values
+print(diabetes_data.isnull().sum())
+
+# remove column1 with missing values
+diabetes_data= diabetes_data.drop('Column1' , axis=1)
+
+#data types stored
+diabetes_data.dtypes
+#all are int64
