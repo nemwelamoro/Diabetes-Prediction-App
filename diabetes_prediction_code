@@ -100,3 +100,8 @@ params = {'max_depth': [3, 5, 7, None], 'min_samples_split': [2, 5, 10], 'min_sa
 grid_search = GridSearchCV(DecisionTreeClassifier(random_state=42), params, cv=5)
 grid_search.fit(X_train, y_train)
 print('Best Estimator:', grid_search.best_estimator_)
+
+# Convert trained model to a TensorFlow Lite model
+converter = tf.lite.TFLiteConverter.from_sklearn(dtc)
+tflite_model = converter.convert()
+open("diabetes_prediction.tflite", "wb").write(tflite_model)
