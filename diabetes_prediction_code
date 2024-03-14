@@ -39,3 +39,5 @@ print(outliers)
 # remove the rows with outliers
 diabetes_data = diabetes_data[(z_scores <= threshold).all(axis=1)]
 
+#descriptive statistics our dataset
+print(diabetes_data.describe())
