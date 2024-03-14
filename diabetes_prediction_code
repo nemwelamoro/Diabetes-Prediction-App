@@ -108,12 +108,12 @@ grid_search = GridSearchCV(DecisionTreeClassifier(random_state=42), params, cv=5
 grid_search.fit(X_train, y_train)
 print('Best Estimator:', grid_search.best_estimator_)
 
-# Convert trained model to a TensorFlow Lite model
+# Convert trained model to a TensorFlow Lite model for deployment
 converter = tf.lite.TFLiteConverter.from_sklearn(dtc)
 tflite_model = converter.convert()
 open("diabetes_prediction.tflite", "wb").write(tflite_model)
 
-
+#Alternative of saving the model for deployment
 import pickle
 # pickle the model to a file
 with open("C:/Users/FBI/Downloads/model.pkl", 'wb') as f:
