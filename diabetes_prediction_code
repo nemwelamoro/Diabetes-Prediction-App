@@ -71,3 +71,15 @@ dtc_pruned.fit(X_train, y_train)
 # Create a new Decision Tree Classifier object with more complex settings to observe overfitting
 dtc_overfit = DecisionTreeClassifier(max_depth=None, min_samples_split=2, min_samples_leaf=1, random_state=42)
 dtc_overfit.fit(X_train, y_train)
+
+
+# Score the model
+# Predict the outcome using the testing data
+y_pred = dtc.predict(X_test)
+
+# Calculate the accuracy score of the model
+print('Accuracy Score:', accuracy_score(y_test, y_pred))
+
+# Create a confusion matrix to evaluate the performance of the model
+conf_matrix = confusion_matrix(y_test, y_pred)
+print('Confusion Matrix:', conf_matrix)
