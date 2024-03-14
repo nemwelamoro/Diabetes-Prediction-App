@@ -7,10 +7,17 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 # Import and read dataset in csv file
 diabetes_data = pd.read_csv("C:/Users/FBI/Downloads/Diabetes_Prediction_2018_2022.csv")
+
+# create heatmap with seaborn
+sns.heatmap(diabetes_data.isnull(), cmap="YlGnBu")
+
+plt.show()
+
 
 #pre processing
 # Check for missing values
