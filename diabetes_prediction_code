@@ -112,3 +112,9 @@ print('Best Estimator:', grid_search.best_estimator_)
 converter = tf.lite.TFLiteConverter.from_sklearn(dtc)
 tflite_model = converter.convert()
 open("diabetes_prediction.tflite", "wb").write(tflite_model)
+
+
+import pickle
+# pickle the model to a file
+with open("C:/Users/FBI/Downloads/model.pkl", 'wb') as f:
+    pickle.dump(dtc, f)
